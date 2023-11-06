@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.Results;
 using Regwizard.Db;
 using Regwizard.Models;
 
@@ -14,6 +16,10 @@ public class UserService : IUserService
 
     public async Task SaveUserAsync(SaveUserRequest user)
     {
+        if (await context.Province.FindAsync(user.ProvinceId) == null)
+            throw new ValidationException(new List<ValidationFailure> { new ValidationFailure(
+                propertyName: nameof(user.ProvinceId), errorMessage: "Province Id doesn't exist", attemptedValue: user.ProvinceId)});
+
         var dbUser = new User()
         {
             Login = user.Login!,

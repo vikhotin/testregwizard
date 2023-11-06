@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Regwizard.Models;
 using Regwizard.Services;
@@ -17,8 +18,9 @@ public class RegisterController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> SaveUser(SaveUserRequest request)
+    public async Task<IActionResult> SaveUser(SaveUserRequest request, IValidator<SaveUserRequest> validator)
     {
+        validator.ValidateAndThrow(request);
         await userService.SaveUserAsync(request);
         return StatusCode((int)HttpStatusCode.Created);
     }
