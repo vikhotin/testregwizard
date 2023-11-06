@@ -51,6 +51,11 @@ builder.Services.AddValidatorsFromAssemblyContaining<SaveUserRequestValidator>()
 
 var app = builder.Build();
 
+app.UseCors(x => x.AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials());
+
 app.UseExceptionHandler();
 app.MapControllers();
 
