@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Regwizard.Models;
+using Regwizard.Services;
+using System.Net;
 
 namespace Regwizard.Controllers;
 
@@ -6,9 +9,17 @@ namespace Regwizard.Controllers;
 [Route("user")]
 public class RegisterController : Controller
 {
-    [Route("register")]
-    public IActionResult Test()
+    private readonly IUserService userService;
+
+    public RegisterController(IUserService userService)
     {
-        return Ok("Hello, world");
+        this.userService = userService;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> SaveUser(SaveUserRequest request)
+    {
+        await userService.SaveUserAsync(request);
+        return StatusCode((int)HttpStatusCode.Created);
     }
 }
