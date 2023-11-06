@@ -11,10 +11,12 @@ public class Context : DbContext
 
     public DbSet<User> User { get; set; }
     public DbSet<Province> Province { get; set; }
+    public DbSet<City> City { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>();
         modelBuilder.Entity<Province>();
+        modelBuilder.Entity<City>();
     }
 }
