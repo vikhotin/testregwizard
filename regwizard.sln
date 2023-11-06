@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "regwizard.db", "regwizard.d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "regwizard.models", "regwizard.models\regwizard.models.csproj", "{307DB0A1-5ADC-477E-8D4D-6A8C6BA4FC9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "regwizard.tests", "regwizard.tests\regwizard.tests.csproj", "{1F771C23-AB79-4BE6-830D-B75C0D88CA30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +29,15 @@ Global
 		{307DB0A1-5ADC-477E-8D4D-6A8C6BA4FC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{307DB0A1-5ADC-477E-8D4D-6A8C6BA4FC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{307DB0A1-5ADC-477E-8D4D-6A8C6BA4FC9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F771C23-AB79-4BE6-830D-B75C0D88CA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F771C23-AB79-4BE6-830D-B75C0D88CA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F771C23-AB79-4BE6-830D-B75C0D88CA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F771C23-AB79-4BE6-830D-B75C0D88CA30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2056138-8035-4570-89C4-ED3B195EBBDD}
 	EndGlobalSection
 EndGlobal
