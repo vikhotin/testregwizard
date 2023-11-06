@@ -6,6 +6,5 @@ public class SaveUserRequest
     public string? Password { get; set; }
     public string? ConfirmPassword { get; set; }
     public bool IsAgree { get; set; }
-    public int CountryId { get; set; }
     public int ProvinceId { get; set; }
 }

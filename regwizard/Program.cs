@@ -9,9 +9,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IAddressService, AddressService>();
-builder.Services.AddDbContext<Context>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("Context")));
+if (args.Length > 0 && args[0] == "--testWithActualDatabase")
+{
+    builder.Services.AddScoped<IUserService, UserService>();
+    builder.Services.AddScoped<IAddressService, AddressService>();
+    builder.Services.AddDbContext<Context>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("Context")));
+}
+else
+{
+    builder.Services.AddSingleton<IUserService, UserServiceForTest>();
+    builder.Services.AddSingleton<IAddressService, AddressServiceForTest>();
+}
 
 builder.Services.AddProblemDetails(c =>
 {
